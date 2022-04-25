@@ -1,0 +1,35 @@
+{
+  "name": "stream-server",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start server.js --name stream-server --watch",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "mediasoup": "^3.9.6",
+    "mediasoup-client": "^3.6.51",
+    "moment": "^2.29.2",
+    "mongoose": "^6.2.5",
+    "node-cron": "^3.0.0",
+    "prettylink": "^1.0.0",
+    "request": "^2.88.2",
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1",
+    "util": "^0.12.4",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}

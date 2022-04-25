@@ -1,0 +1,52 @@
+version: '3.4'
+services:
+  stream-server:
+    build:
+      network: host
+      context: ./website/stream-server
+    container_name: stream-server
+    restart: always
+    volumes:
+      - ./website/stream-server/src:/usr/src/app/src
+      - ./website/stream-server/dist:/usr/src/app/dist
+      - ./website/stream-server/views:/usr/src/app/views
+    ports: 
+     - 8342:8342
+
+  # stream-client:
+  #   build:
+  #     context: ./stream-client
+  #     network: host
+  #   container_name: stream-client
+  #   restart: always
+  #   environment:
+  #     DB_USER: root
+  #     DB_PASS: test
+  #     DB_URL: mongodb://root:test@mongo:27017/
+  #     NODE_ENV: development
+  #   ports:
+  #     - 3000:3000
+  
+  website:
+    build:
+      context: ./website/tito-tv
+      network: host
+    container_name: website
+    volumes:
+      - ./website/tito-tv:/usr/src/app
+    restart: always
+    environment:
+      DB_USER: root
+      DB_PASS: test
+      DB_URL: mongodb://root:test@mongo:27017/
+    ports:
+      - 8080:8080
+  #mongo:
+  #    image: mongo
+  #    restart: always
+  #    environment:
+  #      MONGO_INITDB_ROOT_USERNAME: root
+  #      MONGO_INITDB_ROOT_PASSWORD: test
+  #    ports:
+  #      - 27017:27017
+
